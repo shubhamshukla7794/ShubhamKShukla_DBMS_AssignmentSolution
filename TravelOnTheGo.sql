@@ -46,8 +46,8 @@ INSERT INTO PRICE VALUES("Sitting",1000,1240);
 INSERT INTO PRICE VALUES("Sitting",1200,1488);
 INSERT INTO PRICE VALUES("Sitting",1500,1860);
 
--- 										Passenger Table
---  									---------------
+--                                      Passenger Table
+--                                      ---------------
 -- +----------------+----------+--------+---------------+------------------+----------+----------+
 -- | Passenger_name | Category | Gender | Boarding_City | Destination_City | Distance | Bus_Type |
 -- +----------------+----------+--------+---------------+------------------+----------+----------+
@@ -62,8 +62,8 @@ INSERT INTO PRICE VALUES("Sitting",1500,1860);
 -- | Piyush         | AC       | M      | Pune          | Nagpur           |      700 | Sitting  |
 -- +----------------+----------+--------+---------------+------------------+----------+----------+
 
--- 				Price
--- 				-----
+--              Price
+--              -----
 -- +----------+----------+-------+
 -- | Bus_Type | Distance | Price |
 -- +----------+----------+-------+
@@ -93,8 +93,8 @@ WHERE
     Distance >= 600
 GROUP BY Gender;
 
--- 		OUTPUT
--- 		======
+--      OUTPUT
+--      ======
 -- +--------+-------+
 -- | Gender | Count |
 -- +--------+-------+
@@ -110,8 +110,8 @@ FROM
     price
 WHERE
     Bus_Type = 'Sleeper';
--- 				OUTPUT
--- 				======
+--              OUTPUT
+--              ======
 -- +--------------------------------------+
 -- | Minimum Ticket Price for Sleeper Bus |
 -- +--------------------------------------+
@@ -126,8 +126,8 @@ FROM
     passenger
 WHERE
     Passenger_name LIKE 'S%';
--- 		OUTPUT
--- 		======
+--      OUTPUT
+--      ======
 -- +----------------+
 -- | Passenger Name |
 -- +----------------+
@@ -149,8 +149,8 @@ FROM
 WHERE
     RIDER.Bus_Type = COST.Bus_Type
         AND RIDER.Distance = COST.Distance;
--- 								OUTPUT
--- 								======
+--                              OUTPUT
+--                              ======
 -- +----------------+---------------+------------------+----------+-------+
 -- | Passenger Name | Boarding City | Destination City | Bus Type | Price |
 -- +----------------+---------------+------------------+----------+-------+
@@ -177,8 +177,8 @@ FROM
         INNER JOIN
     price COST ON RIDER.Bus_Type = COST.Bus_Type
         AND RIDER.Distance = COST.Distance;
--- 								OUTPUT
--- 								======
+--                              OUTPUT
+--                              ======
 -- +----------------+---------------+------------------+----------+-------+
 -- | Passenger Name | Boarding City | Destination City | Bus Type | Price |
 -- +----------------+---------------+------------------+----------+-------+
@@ -204,8 +204,8 @@ FROM
     passenger RIDER
         INNER JOIN
     price COST USING(Bus_Type, Distance);
--- 								OUTPUT
--- 								======
+--                              OUTPUT
+--                              ======
 -- +----------------+---------------+------------------+----------+-------+
 -- | Passenger Name | Boarding City | Destination City | Bus Type | Price |
 -- +----------------+---------------+------------------+----------+-------+
@@ -251,8 +251,8 @@ WHERE
         AND RIDER.Destination_City = 'Bengaluru')
         OR (RIDER.Boarding_City = 'Bengaluru'
         AND RIDER.Destination_City = 'Panaji');
--- 										OUTPUT
--- 										======
+--                                      OUTPUT
+--                                      ======
 -- +----------------+---------------+------------------+----------+----------+-------+
 -- | Passenger Name | Boarding City | Destination City | Distance | Bus Type | Price |
 -- +----------------+---------------+------------------+----------+----------+-------+
@@ -268,7 +268,7 @@ SELECT DISTINCT
 FROM
     passenger
 ORDER BY Distance DESC;
--- 	  OUTPUT
+--    OUTPUT
 --    ======
 -- +----------+
 -- | Distance |
@@ -288,8 +288,8 @@ SELECT
     Distance / (SELECT SUM(Distance) FROM passenger) * 100 AS 'Percentage of Distance Travelled'
 FROM
     passenger;
--- 						OUTPUT
--- 						======
+--                      OUTPUT
+--                      ======
 -- +----------------+----------------------------------+
 -- | Passenger Name | Percentage of Distance Travelled |
 -- +----------------+----------------------------------+
@@ -318,8 +318,8 @@ SELECT
     END AS Category
 FROM
     price;
--- 		 		OUTPUT
--- 		 		======
+--              OUTPUT
+--              ======
 -- +----------+-------+--------------+
 -- | Distance | Price | Category     |
 -- +----------+-------+--------------+
